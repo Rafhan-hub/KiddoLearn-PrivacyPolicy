@@ -5,99 +5,221 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KiddoLearn — Privacy Policy</title>
   <meta name="description" content="Privacy Policy for KiddoLearn, a private and family-safe learning app for toddlers aged 2–4.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f9fc;
+      --ink: #3a3360;
+      --muted: #7a7396;
       --card: #ffffff;
-      --text: #1f2933;
-      --muted: #6b7280;
-      --accent: #4f7cff;
-      --border: #e5e9f0;
+      --pink: #ff8fb1;
+      --yellow: #ffd24d;
+      --blue: #6db4ff;
+      --green: #7ad6a6;
+      --purple: #b79bff;
+      --border: #efeaff;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.65;
+      color: var(--ink);
+      font-family: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+      background: linear-gradient(180deg, #bfe3ff 0%, #d8ecff 22%, #fdf3ff 60%, #fff7e9 100%);
+      background-attachment: fixed;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    .wrap {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
+
+    /* floating background blobs */
+    .sky { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .cloud, .dot {
+      position: absolute;
+      opacity: 0.55;
     }
+    .cloud {
+      background: #fff;
+      border-radius: 50px;
+      filter: blur(1px);
+      animation: drift 26s ease-in-out infinite;
+    }
+    .cloud::before, .cloud::after {
+      content: ""; position: absolute; background: #fff; border-radius: 50%;
+    }
+    .c1 { width: 120px; height: 38px; top: 8%; left: 6%; }
+    .c1::before { width: 50px; height: 50px; top: -22px; left: 18px; }
+    .c1::after { width: 38px; height: 38px; top: -14px; left: 60px; }
+    .c2 { width: 90px; height: 30px; top: 20%; right: 8%; animation-delay: -8s; }
+    .c2::before { width: 40px; height: 40px; top: -18px; left: 14px; }
+    .c2::after { width: 30px; height: 30px; top: -10px; left: 46px; }
+    .dot { border-radius: 50%; animation: bob 7s ease-in-out infinite; }
+    .d1 { width: 16px; height: 16px; background: var(--yellow); top: 14%; left: 22%; }
+    .d2 { width: 22px; height: 22px; background: var(--pink); top: 30%; left: 80%; animation-delay: -2s; }
+    .d3 { width: 12px; height: 12px; background: var(--green); top: 46%; left: 12%; animation-delay: -4s; }
+    .d4 { width: 18px; height: 18px; background: var(--purple); top: 64%; left: 86%; animation-delay: -1s; }
+    .d5 { width: 14px; height: 14px; background: var(--blue); top: 78%; left: 18%; animation-delay: -3s; }
+
+    @keyframes drift { 0%,100% { transform: translateX(0); } 50% { transform: translateX(30px); } }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+
+    .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 36px 18px 70px; }
+
+    /* hero */
+    .hero { text-align: center; margin-bottom: 26px; }
+    .logo {
+      width: 132px; height: 132px;
+      border-radius: 30px;
+      box-shadow: 0 14px 34px rgba(109, 180, 255, 0.45);
+      animation: float 5s ease-in-out infinite;
+    }
+    .hero h1 {
+      font-family: "Baloo 2", cursive;
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin: 14px 0 4px;
+      color: #4a3fa0;
+      text-shadow: 0 2px 0 #fff;
+    }
+    .badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 5px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(122, 115, 150, 0.18);
+    }
+    .subtitle {
+      font-family: "Baloo 2", cursive;
+      font-weight: 600;
+      color: #5b5290;
+      margin: 10px auto 0;
+      max-width: 520px;
+      font-size: 1.05rem;
+    }
+
+    /* cards */
     .card {
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 36px;
-      box-shadow: 0 6px 24px rgba(31, 41, 51, 0.05);
+      border-radius: 26px;
+      padding: 22px 26px 24px;
+      margin: 18px 0;
+      box-shadow: 0 10px 30px rgba(74, 63, 160, 0.10);
+      border: 2px solid #fff;
     }
-    h1 {
-      margin: 0 0 4px;
-      font-size: 1.9rem;
-      line-height: 1.2;
+    .card h2 {
+      font-family: "Baloo 2", cursive;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #4a3fa0;
     }
-    h2 {
-      margin: 2.2rem 0 0.6rem;
-      font-size: 1.25rem;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
+    .emoji {
+      font-size: 1.5rem;
+      width: 46px; height: 46px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 14px;
+      flex: 0 0 auto;
     }
-    .updated {
-      color: var(--muted);
-      font-style: italic;
-      margin: 0 0 1.4rem;
+    .bg-pink { background: #ffe5ee; }
+    .bg-yellow { background: #fff3d1; }
+    .bg-blue { background: #e1f0ff; }
+    .bg-green { background: #ddf6ea; }
+    .bg-purple { background: #efe7ff; }
+    .bg-orange { background: #ffe9d6; }
+
+    p { margin: 0.55rem 0; }
+    ul { margin: 0.5rem 0; padding-left: 0; list-style: none; }
+    li { margin: 0.45rem 0; padding-left: 30px; position: relative; }
+    li::before {
+      content: "⭐";
+      position: absolute; left: 0; top: 0;
       font-size: 0.95rem;
     }
-    p { margin: 0.7rem 0; }
-    ul { margin: 0.6rem 0; padding-left: 1.4rem; }
-    li { margin: 0.35rem 0; }
-    a { color: var(--accent); word-break: break-word; }
-    code {
-      background: #eef2f9;
-      padding: 1px 6px;
-      border-radius: 5px;
-      font-size: 0.9em;
+    a { color: #4f7cff; font-weight: 700; word-break: break-word; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: #f0ecff; padding: 2px 7px; border-radius: 7px; font-size: 0.88em; color: #6b5bd0; }
+    strong { color: #4a3fa0; }
+
+    .updated { color: var(--muted); font-weight: 700; font-size: 0.9rem; }
+
+    .highlight {
+      background: linear-gradient(135deg, #fff6da, #ffe9ee);
+      border: 2px dashed #ffce6b;
     }
-    strong { color: var(--text); }
-    .contact {
-      margin-top: 2.4rem;
-      padding: 16px 20px;
-      background: #eef3ff;
-      border-radius: 12px;
+
+    .contact-card {
+      text-align: center;
+      background: linear-gradient(135deg, #6db4ff, #b79bff);
+      color: #fff;
+      border: none;
     }
+    .contact-card h2 { color: #fff; justify-content: center; }
+    .contact-card a { color: #fff; text-decoration: underline; }
+    .contact-card .emoji { background: rgba(255,255,255,0.25); }
+
     footer {
       text-align: center;
-      color: var(--muted);
+      color: #8a82ad;
+      font-weight: 700;
       font-size: 0.85rem;
-      margin-top: 28px;
+      margin-top: 26px;
     }
+    footer .stars { font-size: 1.1rem; letter-spacing: 4px; display: block; margin-bottom: 6px; }
+
     @media (max-width: 520px) {
-      .card { padding: 24px 20px; }
-      h1 { font-size: 1.55rem; }
+      .card { padding: 20px 18px; }
+      .hero h1 { font-size: 1.9rem; }
+      .logo { width: 110px; height: 110px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo, .cloud, .dot { animation: none; }
     }
   </style>
 </head>
 <body>
+  <div class="sky" aria-hidden="true">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="dot d1"></div>
+    <div class="dot d2"></div>
+    <div class="dot d3"></div>
+    <div class="dot d4"></div>
+    <div class="dot d5"></div>
+  </div>
+
   <div class="wrap">
-    <main class="card">
-      <h1>KiddoLearn — Privacy Policy</h1>
-      <p class="updated">Last updated: 2026-05-31</p>
+    <header class="hero">
+      <img class="logo" src="logo.png" alt="KiddoLearn logo — a smiling star">
+      <h1>KiddoLearn</h1>
+      <span class="badge">🔒 Privacy Policy · Last updated 2026-05-31</span>
+      <p class="subtitle">A safe, happy little corner of the internet for curious toddlers (ages 2–4). Here's exactly how we keep your family's information private. 🌈</p>
+    </header>
 
+    <section class="card">
       <p>KiddoLearn ("the app", "we", "us") is a learning app for toddlers aged 2–4. We designed it to be private and family-safe. This policy explains what the app does and does not do with information.</p>
+    </section>
 
-      <h2>The short version</h2>
+    <section class="card highlight">
+      <h2><span class="emoji bg-yellow">⭐</span> The short version</h2>
       <ul>
         <li><strong>No account, no sign-up.</strong> You can use KiddoLearn without giving us any personal information.</li>
         <li><strong>Your child's data stays on the device.</strong> The child's name, learning progress, stars, badges, settings, and the parent PIN are all stored locally on the device and are never sent to us.</li>
         <li><strong>We don't collect personal information from children.</strong></li>
         <li><strong>Ads</strong> (shown only until the one-time "Remove Ads" upgrade is purchased) are served by Google AdMob and configured as <strong>non-personalized / child-directed</strong>.</li>
       </ul>
+    </section>
 
-      <h2>Information stored on the device</h2>
+    <section class="card">
+      <h2><span class="emoji bg-blue">📱</span> Information stored on the device</h2>
       <p>The following is saved only on your device using local storage and never transmitted to us:</p>
       <ul>
         <li>The child's first name (optional, used only to personalize the app)</li>
@@ -107,19 +229,25 @@
         <li>Whether the "Remove Ads" upgrade has been purchased</li>
       </ul>
       <p>You can clear all of this at any time by deleting the app or clearing its data.</p>
+    </section>
 
-      <h2>Advertising</h2>
+    <section class="card">
+      <h2><span class="emoji bg-orange">📺</span> Advertising</h2>
       <p>Until the one-time "Remove Ads" upgrade is purchased, KiddoLearn shows ads between activities using <strong>Google AdMob</strong>. Because KiddoLearn is directed to children, ads are requested as <strong>non-personalized</strong> and <strong>child-directed</strong> (tagged for child-directed treatment / under age of consent). This means ads are contextual, not based on a profile of the user.</p>
       <ul>
-        <li>Google's handling of ad data: <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a></li>
+        <li>Google's handling of ad data: <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a></li>
         <li>AdMob/Google may process limited technical data (such as a device identifier) solely to deliver and frequency-cap non-personalized ads.</li>
       </ul>
       <p>You can permanently remove all ads with the one-time in-app purchase, after which no ad SDK requests are made.</p>
+    </section>
 
-      <h2>In-app purchases</h2>
+    <section class="card">
+      <h2><span class="emoji bg-green">🛒</span> In-app purchases</h2>
       <p>KiddoLearn offers a single one-time purchase, "Remove Ads" (<code>kiddolearn_remove_ads</code>). Purchases are processed by the Apple App Store or Google Play. We do not receive or store your payment information; the app only stores a local flag indicating the upgrade is active.</p>
+    </section>
 
-      <h2>Data we do <strong>not</strong> collect</h2>
+    <section class="card">
+      <h2><span class="emoji bg-pink">🚫</span> Data we do <strong>not</strong> collect</h2>
       <ul>
         <li>No names, emails, phone numbers, or contacts sent to us</li>
         <li>No location data</li>
@@ -127,24 +255,34 @@
         <li>No social features, chat, or user-generated content</li>
         <li>No selling or sharing of personal data</li>
       </ul>
+    </section>
 
-      <h2>Children's privacy (COPPA / GDPR-K / Play Families)</h2>
+    <section class="card">
+      <h2><span class="emoji bg-purple">🧸</span> Children's privacy</h2>
+      <p><strong>(COPPA / GDPR-K / Play Families)</strong></p>
       <p>KiddoLearn is intended for use by young children under the supervision of a parent or guardian and is designed to comply with the Children's Online Privacy Protection Act (COPPA), GDPR provisions for children, and the Google Play Families Policy and Apple Kids Category requirements. We do not knowingly collect personal information from children. The Parent Dashboard and purchases are placed behind a numeric PIN parental gate.</p>
+    </section>
 
-      <h2>Your choices</h2>
+    <section class="card">
+      <h2><span class="emoji bg-yellow">🎛️</span> Your choices</h2>
       <ul>
         <li>Remove ads permanently with the one-time in-app purchase.</li>
         <li>Turn off sound and haptics in Settings.</li>
         <li>Set a daily time limit in the Parent Dashboard.</li>
         <li>Delete the app to remove all locally stored data.</li>
       </ul>
+    </section>
 
-      <h2>Contact us</h2>
-      <div class="contact">
-        <p style="margin:0;">Questions about this policy? Email <strong><a href="mailto:skyloopapps@gmail.com">skyloopapps@gmail.com</a></strong>.</p>
-      </div>
-    </main>
-    <footer>© 2026 KiddoLearn. All rights reserved.</footer>
+    <section class="card contact-card">
+      <h2><span class="emoji">💌</span> Contact us</h2>
+      <p>Questions about this policy? We'd love to hear from you!</p>
+      <p><a href="mailto:skyloopapps@gmail.com">skyloopapps@gmail.com</a></p>
+    </section>
+
+    <footer>
+      <span class="stars">⭐ 🌈 ⭐ 🌈 ⭐</span>
+      © 2026 KiddoLearn · Made with love for little learners
+    </footer>
   </div>
 </body>
 </html>
